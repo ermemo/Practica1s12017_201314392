@@ -16,6 +16,10 @@ public class EDD_practica1_scrabble {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+       
+        
+        Ventana_inicio v = new Ventana_inicio();
+        v.setVisible(true);
     }
     
 }
