@@ -14,8 +14,12 @@ public class JUGADORES extends javax.swing.JFrame {
     /**
      * Creates new form JUGADORES
      */
-    public JUGADORES() {
+    public int dimen;
+    public JUGADORES(int dim) {
         initComponents();
+        System.out.println(dim);
+         dimen =dim;
+        
     }
 
     /**
@@ -90,6 +94,8 @@ public class JUGADORES extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
         Scrabble sc = new Scrabble();
+
+         System.out.println("aqui"+dimen);
         sc.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -123,7 +129,7 @@ public class JUGADORES extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JUGADORES().setVisible(true);
+                new JUGADORES(0).setVisible(true);
             }
         });
     }

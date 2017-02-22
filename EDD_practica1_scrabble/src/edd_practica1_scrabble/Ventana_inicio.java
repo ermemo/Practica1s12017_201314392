@@ -5,12 +5,19 @@
  */
 package edd_practica1_scrabble;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.xml.parsers.ParserConfigurationException;
+import org.xml.sax.SAXException;
+
 /**
  *
  * @author guillermo
  */
 public class Ventana_inicio extends javax.swing.JFrame {
 
+    private int dimension=10;
     /**
      * Creates new form Ventana_inicio
      */
@@ -40,6 +47,11 @@ public class Ventana_inicio extends javax.swing.JFrame {
         });
 
         jButton2.setText("LEER ARCHIVO");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -70,9 +82,21 @@ public class Ventana_inicio extends javax.swing.JFrame {
         
   
           this.setVisible(false);
-        JUGADORES jug = new JUGADORES();
+        JUGADORES jug = new JUGADORES(dimension);
         jug.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        Lector_ScrabbleSAX lector = new Lector_ScrabbleSAX ();
+        try {
+            lector.lectura();
+            dimension= lector.dimensiont;
+            System.out.println(dimension);
+        } catch (SAXException | IOException | ParserConfigurationException ex) {
+            Logger.getLogger(Ventana_inicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
