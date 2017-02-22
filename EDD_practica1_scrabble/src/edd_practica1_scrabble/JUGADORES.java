@@ -15,6 +15,7 @@ public class JUGADORES extends javax.swing.JFrame {
      * Creates new form JUGADORES
      */
     public int dimen;
+    Jugador player = new Jugador();
     public JUGADORES(int dim) {
         initComponents();
         System.out.println(dim);
@@ -45,6 +46,11 @@ public class JUGADORES extends javax.swing.JFrame {
         jLabel2.setText("NOMBRE DEL JUGADOR");
 
         jButton1.setText("AGREGAR JUGADOR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("JUGAR");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -92,12 +98,23 @@ public class JUGADORES extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        
         this.setVisible(false);
         Scrabble sc = new Scrabble();
-
+        player.imprimirLista();
+        player.volverCircular();
+        
+        
          System.out.println("aqui"+dimen);
         sc.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        player.insertar(this.jTextField1.getText());
+        this.jTextField1.setText("");
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

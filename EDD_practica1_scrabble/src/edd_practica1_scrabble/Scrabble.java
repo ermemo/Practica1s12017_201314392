@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package edd_practica1_scrabble;
-
+import java.math.*;
 import javax.swing.JOptionPane;
  import javax.swing.JLabel; 
 
@@ -13,6 +13,7 @@ import javax.swing.SwingConstants; import javax.swing.BorderFactory;
 import javax.swing.border.Border; import java.awt.Color;
 
 import java.awt.Rectangle;
+
 
  
 /**
@@ -36,14 +37,14 @@ public final class Scrabble extends javax.swing.JFrame {
     public int columnas = dim;
     JLabel[][] label = new JLabel[filas][columnas];    //Declaración del array de etiquetas
     Border border = BorderFactory.createLineBorder(Color.black, 1);
-    
+    Fichas fichas = new Fichas(1);
  
   
   
     public Scrabble() {
      
         initComponents();
-        
+        Bolsasdefichas();
         
         for(int i = 0; i < filas; i++) {
              for(int j=0; j< columnas; j++){
@@ -70,8 +71,31 @@ public final class Scrabble extends javax.swing.JFrame {
             System.out.println("y aqui es"+dim);  
          
     }
-
+    
+  public void  Bolsasdefichas(){
+   /*char[] elementos={'A','A','A','A','A','A','A','A','A','A','A','A','E','E','E','E','E','E','E','E'};
+   char[] aux = null ;  
+   for(int i =0;i<20;i++){
+       int rando = (int)(Math.random())*20;
+       aux[0]=elementos[i];
+       elementos[i] = elementos[rando];
+       elementos[rando]=aux[0];
+   }
+  for(int i =0;i<20;i++){
+      System.out.println("ficha: "+elementos[i]);
+       
+   }
    
+   */
+  fichas.insertarDetalle(12, "A");
+  fichas.insertarDetalle(12, "E");
+  fichas.insertarDetalle(9, "O");
+  fichas.recorrerCola();    
+  
+  
+   
+   
+  }
     
     /**
      * This method is called from within the constructor to initialize the form.
